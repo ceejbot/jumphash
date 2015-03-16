@@ -18,7 +18,7 @@ int32_t jumpConsistentHash(uint64_t key, int32_t num_buckets)
 
 NAN_METHOD(JumpConsistentHash)
 {
-	NanScope();
+    NanScope();
 
     uint64_t key = args[0]->IntegerValue();
     int32_t buckets = args[1]->Uint32Value();
@@ -50,7 +50,7 @@ NAN_METHOD(JumpBuffer)
 
 void InitAll(Handle<Object> exports, Handle<Object> module)
 {
-	exports->Set(NanNew<String>("jumphash"), NanNew<FunctionTemplate>(JumpConsistentHash)->GetFunction());
+    exports->Set(NanNew<String>("jumphash"), NanNew<FunctionTemplate>(JumpConsistentHash)->GetFunction());
     exports->Set(NanNew<String>("jumpbuffer"), NanNew<FunctionTemplate>(JumpBuffer)->GetFunction());
 }
 
