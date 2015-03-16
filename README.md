@@ -9,9 +9,12 @@ This module provides one function: `jumpsuit(key, bucketCount)`. `key` must be a
 The return value is a integer in the range `[0, bucketCount)` that you can use as you wish. The paper linked above describes the intended data storage use.
 
 ```javascript
-var jumpsuit = require('jumpsuit');
+var jumpsuit = require('jumpsuit')
+    assert = require('assert');
 
 var location = jumpsuit(23102, 16);
+assert(location >= 0);
+assert(location < 16);
 ```
 
 ## License
