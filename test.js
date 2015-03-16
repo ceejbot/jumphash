@@ -81,13 +81,14 @@ describe('jumpsuit', function()
         var crypto = require('crypto');
         var md5sum = crypto
             .createHash('md5')
-            .update('the quick brown fox jumps over the lazy dog')
+            .update('once more into the breach dear friends or stop up this wall')
             .digest();
 
         var result = jumpsuit(md5sum, 16);
         result.must.be.a.number();
         result.must.be.above(-1);
         result.must.be.below(20 + 1);
+        result.must.equal(11);
     });
 
     it('does not blow up with zero-length buffers', function()
@@ -97,6 +98,5 @@ describe('jumpsuit', function()
         result.must.be.a.number();
         result.must.be.above(-1);
         result.must.be.below(20 + 1);
-        result.must.equal(14);
     });
 });
