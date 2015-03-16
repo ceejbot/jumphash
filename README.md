@@ -6,18 +6,27 @@ Really remarkably trivial node bindings for Google's [jump consistent hash](http
 
 ## Usage
 
-This module provides one function: `jumpsuit(key, bucketCount)`. `key` must be a non-negative integer. (0 is okay.) `bucketCount` must be a positive integer (0 is an invalid bucket count).
+This module provides one function: `jumpsuit(key, bucketCount)`. `key` must be a non-negative integer or a buffer. `bucketCount` must be a positive integer (0 is an invalid bucket count).
 
 The return value is a integer in the range `[0, bucketCount)` that you can use as you wish. The paper linked above describes the intended data storage use.
 
 ```javascript
 var jumpsuit = require('jumpsuit')
-    assert = require('assert');
+    assert = require('assert'),
+    crypto = require('crypto');
 
 var location = jumpsuit(23102, 16);
 assert(location >= 0);
 assert(location < 16);
+
+var buffer = crypto
+        .createHash('md5')
+        .update('my-string-key-for-some-resource')
+        .digest();
+var location2 = jumpsuit(buffer, 16);
 ```
+
+Only the first 64 bits of the buffer are considered, with the most significant bit first.
 
 ## License
 

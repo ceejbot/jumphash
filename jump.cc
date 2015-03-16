@@ -28,11 +28,30 @@ NAN_METHOD(JumpConsistentHash)
     NanReturnValue(NanNew<Number>(dest));
 }
 
+NAN_METHOD(JumpBuffer)
+{
+    NanScope();
+
+    Local<Object> buffer = args[0].As<Object>();
+    size_t length = node::Buffer::Length(buffer);
+    const uint8_t* data = reinterpret_cast<const uint8_t* >(node::Buffer::Data(buffer));
+    int bytelen = (length < 8 ? length : 8);
+    int32_t buckets = args[1]->Uint32Value();
+
+    uint64_t key = 0;
+    for (int i = 0; i < bytelen; i++)
+        key = (key << 8) ^ data[i];
+
+    int32_t dest = jumpConsistentHash(key, buckets);
+    NanReturnValue(NanNew<Number>(dest));
+}
+
 // ------------ ceremony
 
 void InitAll(Handle<Object> exports, Handle<Object> module)
 {
 	exports->Set(NanNew<String>("jumphash"), NanNew<FunctionTemplate>(JumpConsistentHash)->GetFunction());
+    exports->Set(NanNew<String>("jumpbuffer"), NanNew<FunctionTemplate>(JumpBuffer)->GetFunction());
 }
 
 NODE_MODULE(jumpsuit, InitAll)

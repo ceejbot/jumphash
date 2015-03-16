@@ -66,4 +66,37 @@ describe('jumpsuit', function()
         result.must.be.above(-1);
         result.must.be.below(2);
     });
+
+    it('accepts a buffer as a key', function()
+    {
+        var buf = new Buffer([1, 2, 3, 4]);
+        var result = jumpsuit(buf, 20);
+        result.must.be.a.number();
+        result.must.be.above(-1);
+        result.must.be.below(20 + 1);
+    });
+
+    it('accepts larger buffers than it needs', function()
+    {
+        var crypto = require('crypto');
+        var md5sum = crypto
+            .createHash('md5')
+            .update('the quick brown fox jumps over the lazy dog')
+            .digest();
+
+        var result = jumpsuit(md5sum, 16);
+        result.must.be.a.number();
+        result.must.be.above(-1);
+        result.must.be.below(20 + 1);
+    });
+
+    it('does not blow up with zero-length buffers', function()
+    {
+        var buf = new Buffer(0);
+        var result = jumpsuit(buf, 20);
+        result.must.be.a.number();
+        result.must.be.above(-1);
+        result.must.be.below(20 + 1);
+        result.must.equal(14);
+    });
 });
