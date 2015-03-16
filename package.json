@@ -1,7 +1,7 @@
 {
   "name": "jumpsuit",
   "description": "an implementation of the jump consistent hash for node",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "C J Silverio <ceejceej@gmail.com>",
   "bugs": {
     "url": "https://github.com/ceejbot/jumpsuit/issues"
