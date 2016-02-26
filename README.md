@@ -2,7 +2,9 @@
 
 Really remarkably trivial node bindings for Google's [jump consistent hash](http://arxiv.org/pdf/1406.2294v1.pdf).
 
-[![Build Status](http://img.shields.io/travis/ceejbot/jumpsuit/master.svg?style=flat)](http://travis-ci.org/ceejbot/jumpsuit) [![on npm](http://img.shields.io/npm/v/jumpsuit.svg?style=flat)](https://www.npmjs.com/package/jumpsuit) ![io.js supported](https://img.shields.io/badge/io.js-supported-green.svg?style=flat)
+[![Build Status](http://img.shields.io/travis/ceejbot/jumpsuit/master.svg?style=flat)](http://travis-ci.org/ceejbot/jumpsuit) [![on npm](http://img.shields.io/npm/v/jumpsuit.svg?style=flat)](https://www.npmjs.com/package/jumpsuit)
+
+Tested on node 0.10, 0.12, 4, and 5.
 
 ## Usage
 
