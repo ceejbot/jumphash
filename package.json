@@ -1,10 +1,10 @@
 {
-  "name": "jumpsuit",
+  "name": "@ceejbot/jumphash",
   "description": "an implementation of the jump consistent hash for node",
   "version": "1.2.0",
   "author": "C J Silverio <ceejceej@gmail.com>",
   "bugs": {
-    "url": "https://github.com/ceejbot/jumpsuit/issues"
+    "url": "https://github.com/ceejbot/jumphash/issues"
   },
   "dependencies": {
     "bindings": "~1.2.1",
@@ -15,7 +15,7 @@
     "must": "~0.13.1"
   },
   "gypfile": true,
-  "homepage": "https://github.com/ceejbot/jumpsuit",
+  "homepage": "https://github.com/ceejbot/jumphash",
   "keywords": [
     "consistent hash",
     "jump consistent hash"
@@ -24,7 +24,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ceejbot/jumpsuit.git"
+    "url": "git://github.com/ceejbot/jumphash.git"
   },
   "scripts": {
     "install": "node-gyp rebuild",
