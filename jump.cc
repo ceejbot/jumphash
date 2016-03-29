@@ -63,4 +63,4 @@ NAN_MODULE_INIT(InitAll)
     );
 }
 
-NODE_MODULE(jumpsuit, InitAll)
+NODE_MODULE(jumphash, InitAll)

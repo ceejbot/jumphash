@@ -1,7 +1,7 @@
 var
     assert   = require('assert'),
     bindings = require('bindings'),
-    jumpsuit = bindings('jumpsuit')
+    jumphash = bindings('jumphash')
     ;
 
 module.exports = function wrapper(key, buckets)
@@ -11,7 +11,7 @@ module.exports = function wrapper(key, buckets)
     assert(typeof buckets == 'number' && (buckets > 0), 'you must pass a positive integer bucketCount');
 
     if (Buffer.isBuffer(key))
-        return jumpsuit.jumpbuffer(key, buckets);
+        return jumphash.jumpbuffer(key, buckets);
 
-    return jumpsuit.jumphash(key, buckets);
+    return jumphash.jumphash(key, buckets);
 };

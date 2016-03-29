@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "jumpsuit",
+      "target_name": "jumphash",
       "sources": [
         "jump.cc"
       ],

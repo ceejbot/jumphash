@@ -2,32 +2,32 @@
 
 var
     demand = require('must'),
-    jumpsuit = require('./index');
+    jumphash = require('./index');
 
-describe('jumpsuit', function()
+describe('jumphash', function()
 {
     it('exports a function', function()
     {
-        jumpsuit.must.be.a.function();
+        jumphash.must.be.a.function();
     });
 
     it('requires that the key argument be non-negative', function()
     {
-        function shouldThrow() { return jumpsuit(-1, 20); }
+        function shouldThrow() { return jumphash(-1, 20); }
         shouldThrow.must.throw(/non-negative/);
     });
 
     it('requires that the bucket count argument be greater than zero', function()
     {
-        function shouldThrow() { return jumpsuit(1, -1); }
+        function shouldThrow() { return jumphash(1, -1); }
         shouldThrow.must.throw(/positive integer/);
-        function shouldThrow2() { return jumpsuit(1, 0); }
+        function shouldThrow2() { return jumphash(1, 0); }
         shouldThrow2.must.throw(/positive integer/);
     });
 
     it('returns an integer', function()
     {
-        var result = jumpsuit(5000, 20);
+        var result = jumphash(5000, 20);
         result.must.be.a.number();
         result.must.be.above(-1);
         result.must.be.below(20 + 1);
@@ -39,7 +39,7 @@ describe('jumpsuit', function()
 
         for (var i = 1; i < 1000; i++)
         {
-            var comp = jumpsuit(key, i);
+            var comp = jumphash(key, i);
             comp.must.be.above(-1);
             comp.must.be.below(i);
         }
@@ -52,7 +52,7 @@ describe('jumpsuit', function()
 
         for (var i = 1; i < 16000; i++)
         {
-            var result = jumpsuit(i, buckets);
+            var result = jumphash(i, buckets);
             hits[result] = true;
         }
 
@@ -62,7 +62,7 @@ describe('jumpsuit', function()
 
     it('does something reasonable with non-integer input', function()
     {
-        var result = jumpsuit(45344.2, 2.4);
+        var result = jumphash(45344.2, 2.4);
         result.must.be.above(-1);
         result.must.be.below(2);
     });
@@ -70,7 +70,7 @@ describe('jumpsuit', function()
     it('accepts a buffer as a key', function()
     {
         var buf = new Buffer([1, 2, 3, 4]);
-        var result = jumpsuit(buf, 20);
+        var result = jumphash(buf, 20);
         result.must.be.a.number();
         result.must.be.above(-1);
         result.must.be.below(20 + 1);
@@ -84,7 +84,7 @@ describe('jumpsuit', function()
             .update('once more into the breach dear friends or stop up this wall')
             .digest();
 
-        var result = jumpsuit(md5sum, 16);
+        var result = jumphash(md5sum, 16);
         result.must.be.a.number();
         result.must.be.above(-1);
         result.must.be.below(20 + 1);
@@ -94,7 +94,7 @@ describe('jumpsuit', function()
     it('does not blow up with zero-length buffers', function()
     {
         var buf = new Buffer(0);
-        var result = jumpsuit(buf, 20);
+        var result = jumphash(buf, 20);
         result.must.be.a.number();
         result.must.be.above(-1);
         result.must.be.below(20 + 1);
