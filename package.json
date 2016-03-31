@@ -1,7 +1,7 @@
 {
   "name": "@ceejbot/jumphash",
   "description": "an implementation of the jump consistent hash for node",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "C J Silverio <ceejceej@gmail.com>",
   "bugs": {
     "url": "https://github.com/ceejbot/jumphash/issues"
