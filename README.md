@@ -4,7 +4,7 @@ Really remarkably trivial node bindings for Google's [jump consistent hash](http
 
 [![Build Status](http://img.shields.io/travis/ceejbot/jumphash/master.svg?style=flat)](http://travis-ci.org/ceejbot/jumphash) [![on npm](http://img.shields.io/npm/v/@ceejbot/jumphash.svg?style=flat)](https://www.npmjs.com/package/@ceejbot/jumphash)
 
-Tested on node 0.10, 0.12, 4, and 5.
+Tested on node 0.10, 4, 5, and 6.
 
 ```
 npm install --save @ceejbot/jumphash
