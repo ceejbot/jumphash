@@ -4,7 +4,7 @@ Really remarkably trivial node bindings for Google's [jump consistent hash](http
 
 [![Build Status](http://img.shields.io/travis/ceejbot/jumphash/master.svg?style=flat)](http://travis-ci.org/ceejbot/jumphash) [![on npm](http://img.shields.io/npm/v/@ceejbot/jumphash.svg?style=flat)](https://www.npmjs.com/package/@ceejbot/jumphash)
 
-Tested on node 0.10, 4, 5, and 6.
+Tested on nodes 4, 6, and 7. Is probably just fine on node 0.10 too.
 
 ```
 npm install --save @ceejbot/jumphash
@@ -26,9 +26,9 @@ assert(location >= 0);
 assert(location < 16);
 
 var buffer = crypto
-        .createHash('md5')
-        .update('my-string-key-for-some-resource')
-        .digest();
+    .createHash('md5')
+    .update('my-string-key-for-some-resource')
+    .digest();
 var location2 = jumphash(buffer, 16);
 ```
 
